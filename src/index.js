@@ -1,22 +1,9 @@
 import React from "react"
 import ReactDOM from "react-dom"
-
-const Message = ({ message }) => {
-  return (
-    <React.Fragment>
-      <h1>{message}</h1>
-      <p>&quot;qwd&quot;</p>
-    </React.Fragment>
-  )
-}
-
-const MessageField = ({ messages }) => {
-  return messages.map((message, index) => (
-    <Message message={message} key={index} isVisible={true} />
-  ))
-}
+import Chat from "./pages/Chat";
 
 ReactDOM.render(
-  <MessageField messages={["test1"]} />,
+  <Chat />,
   document.getElementById("root"),
 )
+

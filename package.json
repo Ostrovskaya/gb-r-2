@@ -8,13 +8,15 @@
     "dev": "cross-env NODE_ENV=development webpack",
     "start": "cross-env NODE_ENV=development webpack serve"
   },
-  "author": "bogdan",
+  "author": "ostrovskaya",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.14.2",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@emotion/core": "^11.0.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
@@ -35,6 +37,8 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "nanoid": "^3.1.23",
     "prettier": "^2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
