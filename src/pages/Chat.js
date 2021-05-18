@@ -1,8 +1,20 @@
-import React, { useState } from 'react'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Message from '@components/Message';
+import React, { useState, useEffect } from 'react'
+import {TextField, Button  }from '@material-ui/core';
+import MessageList from '@components/MessageList';
 import {nanoid} from 'nanoid';
+
+const user = {
+    name: "Елена",
+    avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
+}
+
+const botMessage = {
+    text: 'Спасибо за сообщение! Мы ответим в ближайшее время.',  
+    user: {
+        avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+        name: "Бот",
+    }
+}
 
 const Chat = () => {
     const [message, setMessage] = useState('');
@@ -10,9 +22,15 @@ const Chat = () => {
 
     const handlerAddMessage = (e) => {
         e.preventDefault();
-        setMessages([...messages, {id: nanoid(), text: message }]);
+        setMessages([...messages, {id: nanoid(), text: message, user }]);
         setMessage('');
     }
+
+    useEffect(() => {
+        if ( messages[messages.length - 1]?.user === user) {
+            setMessages([...messages, {id: nanoid(), ...botMessage }]);
+        }
+    }, [messages]);
     return (
         <div css={{ textAlign: 'center' }}>
             <form onSubmit={(e) => handlerAddMessage(e)} >
@@ -22,15 +40,10 @@ const Chat = () => {
                         Отправить
                     </Button>
                 </div>
+                <MessageList messages={messages} />
                 
             </form>
-            <div css={{border: '1px solid green', padding: '16px', width: '500px', margin: '32px auto', borderRadius: 16}}>
-                {messages.map(mes => (
-                    <div key={mes.id} css={{marginBottom: '24px'}}>
-                        <Message text={mes.text} />
-                    </div>
-                ))}
-            </div>
+            
         </div>
     )
 }

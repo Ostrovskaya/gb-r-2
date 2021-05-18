@@ -1,0 +1,31 @@
+.message {
+   display: flex;
+   align-items: center;
+   text-align: left;
+}
+
+.messageText{
+    border-radius: 16px;
+    border: 1px solid orange;
+    padding: 0 16px;
+    width: 45%;
+    overflowX: hidden;
+}
+
+.messageAvatar{
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 16px;
+}
+
+.messageName{
+    color: #872f8f;
+}
+
+.messageBot {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+  
+
+  

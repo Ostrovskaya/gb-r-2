@@ -1,0 +1,7 @@
+.messageList {
+    border: 1px solid green;
+    padding: 16px;
+    width: 500px;
+    margin: 32px auto;
+    border-radius: 16px
+ }
